@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Animals</string>
+    <string name="huskies_images">Huskies Images</string>
+    <string name="random_images">Random Images</string>
+    <string name="wallpaper">wallpaper</string>
+    <string name="set_wallpaper">Set Wallpaper</string>
+    <string name="browse_breed_list">Browse Breed List</string>
+    <string name="pitt_bull">Pitt Bull</string>
+</resources>
