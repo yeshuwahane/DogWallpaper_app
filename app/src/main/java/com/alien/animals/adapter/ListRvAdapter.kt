@@ -1,6 +1,8 @@
 package com.alien.animals.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,14 +12,14 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.alien.animals.R
 import com.alien.animals.model.BreedListModel
-import com.alien.animals.model.Message
+import com.alien.animals.view.ImageListActivity
 
 class ListRvAdapter(val context : Context): RecyclerView.Adapter<ListRvAdapter.MyViewholder>() {
 
     val mainContext = context
-    var data: List<BreedListModel> = arrayListOf()
-    fun setDogBreed(data: List<BreedListModel>){
-        this.data = listOf(data)
+    var data: List<String> = arrayListOf()
+    fun setBreedList(data: List<String>){
+        this.data = data
         notifyDataSetChanged()
     }
 
@@ -29,9 +31,12 @@ class ListRvAdapter(val context : Context): RecyclerView.Adapter<ListRvAdapter.M
     }
 
     override fun onBindViewHolder(holder: MyViewholder, position: Int) {
-        holder.breedName.text = data[position].toString()
+        holder.breedName.text = data[position]
         holder.breedCard.setOnClickListener {
-            Toast.makeText(mainContext, "Button", Toast.LENGTH_SHORT).show()
+            val intent = Intent(mainContext,ImageListActivity::class.java)
+            intent.putExtra("dog",data[position])
+            Log.d("alien",data[position])
+            mainContext.startActivity(intent)
         }
     }
 

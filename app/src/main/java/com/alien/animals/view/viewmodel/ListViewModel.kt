@@ -45,4 +45,33 @@ class ListViewModel : ViewModel() {
 
         })
     }
+
+    fun getAkitaImages(){
+        DogApi().getAkitaImages().enqueue(object :Callback<DogImageListModel>{
+            override fun onResponse(call: Call<DogImageListModel>, response: Response<DogImageListModel>) {
+                Log.d("alien", "Success ${response.body()}")
+                dogImageListLiveData.value = response.body()
+            }
+
+            override fun onFailure(call: Call<DogImageListModel>, t: Throwable) {
+                Log.d("alien", "Failed ${t.stackTrace}")
+            }
+
+        })
+    }
+
+    fun getBeagleImages(){
+        DogApi().getBeagleImages().enqueue(object : Callback<DogImageListModel>{
+            override fun onResponse(call: Call<DogImageListModel>, response: Response<DogImageListModel>) {
+                Log.d("alien", "Success ${response.body()}")
+                dogImageListLiveData.value = response.body()
+            }
+
+            override fun onFailure(call: Call<DogImageListModel>, t: Throwable) {
+                Log.d("alien", "Failed ${t.stackTrace}")
+
+            }
+
+        })
+    }
 }

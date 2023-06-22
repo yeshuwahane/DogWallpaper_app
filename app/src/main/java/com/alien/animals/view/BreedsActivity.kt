@@ -2,12 +2,16 @@ package com.alien.animals.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alien.animals.adapter.ListRvAdapter
 import com.alien.animals.databinding.ActivityBreedsBinding
+import com.alien.animals.model.BreedList
+import com.alien.animals.model.BreedListModel
 import com.alien.animals.view.viewmodel.BreedViewModel
+import java.util.Timer
+import kotlin.concurrent.schedule
 
 class BreedsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBreedsBinding
@@ -26,10 +30,10 @@ class BreedsActivity : AppCompatActivity() {
 
         breedViewModel = ViewModelProvider(this).get(BreedViewModel::class.java)
 
-        breedViewModel.getBreedList()
+        Toast.makeText(this, "only akita and beagle works", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "will complete soon", Toast.LENGTH_SHORT).show()
 
-        breedViewModel.breedListLiveData.observe(this, Observer {it->
-            listRvAdapter.setDogBreed(it)
-        })
+
+        listRvAdapter.setBreedList(BreedList().breeds)
     }
 }

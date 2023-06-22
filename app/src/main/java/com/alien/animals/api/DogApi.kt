@@ -14,6 +14,8 @@ private const val BASE_URL = "https://dog.ceo"
 private const val HOME_IMAGE_URL = "/api/breeds/image/random"
 private const val RANDOM_IMAGES_URL = "/api/breeds/image/random/20"
 private const val HUSKIES_URL = "/api/breed/husky/images"
+private const val AKITA_URL = "/api/breed/akita/images"
+private const val BEAGLE_URL = "/api/breed/beagle/images"
 private const val BREED_LIST_URL = "api/breeds/list/all"
 interface DogApi {
     companion object{
@@ -34,6 +36,12 @@ interface DogApi {
 
     @GET(HUSKIES_URL)
     fun getHuskiesImages():Call<DogImageListModel>
+
+    @GET(AKITA_URL)
+    fun getAkitaImages():Call<DogImageListModel>
+
+    @GET(BEAGLE_URL)
+    fun getBeagleImages():Call<DogImageListModel>
 
     @GET(BREED_LIST_URL)
     fun getBreedList():Call<BreedListModel>

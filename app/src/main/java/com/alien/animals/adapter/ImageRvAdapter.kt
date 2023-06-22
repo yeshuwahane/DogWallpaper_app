@@ -33,12 +33,10 @@ class ImageRvAdapter(val context : Context): RecyclerView.Adapter<ImageRvAdapter
     override fun onBindViewHolder(holder: MyViewholder, position: Int) {
         holder.dogImage.load(data[position])
         holder.dogImage.setOnClickListener {
-//            Toast.makeText(mainContext, "Image ${data[position]}", Toast.LENGTH_SHORT).show()
             val intent = Intent(mainContext,WallpaperActivity::class.java)
             intent.putExtra("url",data[position])
             mainContext.startActivity(intent)
         }
-
 
     }
 
